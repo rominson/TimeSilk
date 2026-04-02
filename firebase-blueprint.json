@@ -1,0 +1,50 @@
+{
+  "entities": {
+    "User": {
+      "title": "User Profile",
+      "description": "Stores user basic information.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "description": "User's display name" },
+        "birthDate": { "type": "string", "format": "date", "description": "User's birth date" }
+      },
+      "required": ["name"]
+    },
+    "Goal": {
+      "title": "Life Goal",
+      "description": "A goal the user wants to achieve at a certain age.",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string", "description": "The goal description" },
+        "age": { "type": "integer", "description": "Target age for the goal" },
+        "completed": { "type": "boolean", "description": "Whether the goal is achieved" }
+      },
+      "required": ["title", "age"]
+    },
+    "Letter": {
+      "title": "Future Letter",
+      "description": "A letter written to the future self.",
+      "type": "object",
+      "properties": {
+        "content": { "type": "string", "description": "The content of the letter" },
+        "unlockAge": { "type": "integer", "description": "Age when the letter can be opened" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "When the letter was written" }
+      },
+      "required": ["content", "unlockAge", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "User profile document"
+    },
+    "users/{userId}/goals/{goalId}": {
+      "schema": "Goal",
+      "description": "User's life goals"
+    },
+    "users/{userId}/letters/{letterId}": {
+      "schema": "Letter",
+      "description": "User's future letters"
+    }
+  }
+}

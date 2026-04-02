@@ -1,0 +1,5 @@
+{
+  "name": "人生网格",
+  "description": "可视化你人生的每一个篇章。输入你的出生日期，查看你已填满的画布以及等待你创作的未来空间。",
+  "requestFramePermissions": []
+}
